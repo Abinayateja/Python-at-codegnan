@@ -1,0 +1,7 @@
+print((10 > 5) or (10 < 11))
+print((10 == 10) and (10 >= 9))
+print(not(10 <= 11 or -9 > -8))
+print(not(-699 < 6.9 or 5.02 == 5.0200))
+print(10 and 5)
+print(10 or -9)
+print(5 or 0)
