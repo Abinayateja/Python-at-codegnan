@@ -1,3 +1,4 @@
+from data import students_data, faculty_data
 def student_registration():
     name = input("Enter Student name: ")
     age = int(input("Enter Student age: "))
@@ -13,6 +14,7 @@ def student_registration():
         "email": email,
         "phone": phone
     }
+    students_data[len(students_data) + 1001] = student
     return student
 
 def faculty_registration():
@@ -32,5 +34,6 @@ def faculty_registration():
         "email": email,
         "phone": phone
     }
+    faculty_data[len(faculty_data) + 1001] = faculty
     return faculty
 
