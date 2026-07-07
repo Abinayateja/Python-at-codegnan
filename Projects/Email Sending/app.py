@@ -2,12 +2,15 @@
 from smtplib import SMTP
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 # Server Configuration
-smtp_sever = "smtp.gmail.com"
-smtp_port = 587
-sender_email = "gaddamabinayateja@gmail.com"
-passkey = "hwjlhwgpnrlqtpab"
+smtp_server = os.getenv("SMTP_SERVER")
+smtp_port = int(os.getenv("SMTP_PORT"))
+sender_email = os.getenv("SENDER_EMAIL")
+passkey = os.getenv("PASSKEY")
 
 def singleEmailSend(to_email:str,subject:str,body:str):
     msg = MIMEMultipart()
@@ -18,7 +21,7 @@ def singleEmailSend(to_email:str,subject:str,body:str):
 
     try:
         # Start Server
-        server = SMTP(smtp_sever,smtp_port)
+        server = SMTP(smtp_server,smtp_port)
         # Start Server
         server.starttls()
         # login to server
