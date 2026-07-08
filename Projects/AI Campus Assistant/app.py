@@ -1,6 +1,8 @@
 from register import student_registration, faculty_registration
 from login import student_login, faculty_login
 from admin import admin_login
+from data import students_data,faculty_data
+from admin import add_student, add_faculty
 
 # main
 if __name__ == "__main__":
@@ -11,7 +13,7 @@ if __name__ == "__main__":
         choice = input("Please select an option: ")
         
         if choice == "1":
-            student_registration()
+            add_student(students_data)
 
         elif choice == "2":
             email = input("Enter your email: ")
@@ -19,7 +21,7 @@ if __name__ == "__main__":
             student_login(email, administration_number)
 
         elif choice == "3":
-            faculty_registration()
+            add_faculty(faculty_data)
 
         elif choice == "4":
             email = input("Enter your email: ")
@@ -31,7 +33,8 @@ if __name__ == "__main__":
             admin_login(password)
 
         elif choice == "6":
-            print("Exiting the program.")
+            print("Thank you for using AI Campus Assistant.")
+            print("See You Soon!")
             exit = True
 
         else:

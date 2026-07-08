@@ -36,36 +36,139 @@ def add_faculty(faculty_list):
 
 def view_students(student_list):
     for admin_no, student in student_list.items():
-        print(f"ID: {admin_no}")
-        print(f"Name: {student['name']}")
-        print(f"Age: {student['age']}")
-        print(f"Gender: {student['gender']}")
-        print(f"Course: {student['course']}")
-        print(f"Email: {student['email']}")
-        print(f"Phone: {student['phone']}")
+
+        print("-" * 70)
+        print(f"Admission No : {admin_no}")
+        print(f"Name         : {student['name']}")
+        print(f"Age          : {student['age']}")
+        print(f"Gender       : {student['gender']}")
+        print(f"Course       : {student['course']}")
+        print(f"Email        : {student['email']}")
+        print(f"Phone        : {student['phone']}")
+        print("-" * 70)
 
 def view_faculty(faculty_list):
     for faculty_id, faculty in faculty_list.items():
-        print(f"ID: {faculty_id}")
-        print(f"Name: {faculty['name']}")
-        print(f"Age: {faculty['age']}")
-        print(f"Gender: {faculty['gender']}")
-        print(f"Department: {faculty['department']}")
-        print(f"Email: {faculty['email']}")
-        print(f"Phone: {faculty['phone']}")
+
+        print("-" * 70)
+        print(f"Faculty ID   : {faculty_id}")
+        print(f"Name         : {faculty['name']}")
+        print(f"Age          : {faculty['age']}")
+        print(f"Gender       : {faculty['gender']}")
+        print(f"Department   : {faculty['department']}")
+        print(f"Experience   : {faculty['experience']} Years")
+        print(f"Email        : {faculty['email']}")
+        print(f"Phone        : {faculty['phone']}")
+        print("-" * 70)
 
 def view_marks(administration_number):
-    if administration_number in students_data:
-        marks = marks_data[administration_number]
-        print(f"Marks for {students_data[administration_number]['name']}: {marks}")
+
+    if administration_number not in students_data:
+        print("Student not found.")
+        return
+
+    semester = input("Enter Semester Number (1-8): ")
+
+    semester_name = f"Semester {semester}"
+
+    if semester_name not in marks_data[administration_number]:
+        print("Invalid Semester.")
+        return
+
+    print("\n====================================")
+    print(f"{semester_name} Marks")
+    print("====================================")
+
+    total = 0
+
+    for subject, marks in marks_data[administration_number][semester_name].items():
+
+        print(f"{subject:<30} : {marks}")
+
+        total += marks
+
+    average = total / len(marks_data[administration_number][semester_name])
+
+    print("------------------------------------")
+    print("Total Marks :", total)
+    print("Average     :", round(average,2))
 
 def view_attendance(administration_number):
-    if administration_number in students_data:
-        attendance = attendance_data[administration_number]
-        print(f"Attendance for {students_data[administration_number]['name']}: {attendance}")
+
+    if administration_number not in students_data:
+        print("Student not found.")
+        return
+
+    semester = input("Enter Semester Number (1-8): ")
+
+    semester_name = f"Semester {semester}"
+
+    if semester_name not in attendance_data[administration_number]:
+        print("Invalid Semester.")
+        return
+
+    print("\n====================================")
+    print("Attendance Report")
+    print("====================================")
+
+    print("Semester   :", semester_name)
+    print("Attendance :", attendance_data[administration_number][semester_name],"%")
 
 def view_profile(administration_number):
-    if administration_number in students_data:
-        profile = students_data[administration_number]
-        print(f"Profile for {profile['name']}: Age: {profile['age']}, Gender: {profile['gender']}, Course: {profile['course']}, Email: {profile['email']}, Phone: {profile['phone']}")
-        print(f"Marks: {marks_data[administration_number]}, Attendance: {attendance_data[administration_number]}")
+
+    if administration_number not in students_data:
+        print("Student not found.")
+        return
+
+    student = students_data[administration_number]
+
+    print("\n========== Student Profile ==========")
+
+    print("Admission No :", administration_number)
+    print("Name         :", student["name"])
+    print("Age          :", student["age"])
+    print("Gender       :", student["gender"])
+    print("Course       :", student["course"])
+    print("Email        :", student["email"])
+    print("Phone        :", student["phone"])
+
+
+def calculate_cgpa(administration_number):
+
+    if administration_number not in students_data:
+        print("Student not found.")
+        return
+
+    total_gpa = 0
+    semesters = 0
+
+    print("\n=========== GPA Report ===========")
+
+    for semester, subjects in marks_data[administration_number].items():
+
+        total = sum(subjects.values())
+
+        average = total / len(subjects)
+
+        if average >= 90:
+            gpa = 10
+        elif average >= 80:
+            gpa = 9
+        elif average >= 70:
+            gpa = 8
+        elif average >= 60:
+            gpa = 7
+        elif average >= 50:
+            gpa = 6
+        else:
+            gpa = 0
+
+        print(f"{semester:<15} GPA : {gpa}")
+
+        total_gpa += gpa
+        semesters += 1
+
+    cgpa = total_gpa / semesters
+
+    print("----------------------------------")
+    print("Overall CGPA :", round(cgpa,2))

@@ -38,29 +38,71 @@ def chatbot(user_prompt):
     elif "machine learning" in user_prompt:
         print("AI Assistant: Machine Learning is a subset of Artificial Intelligence.")
 
-    # elif "attendance" in user_prompt:
-    #     attendance()
+    elif "c language" in user_prompt or "what is c" in user_prompt:
+        print("AI Assistant: C is a procedural programming language developed by Dennis Ritchie.")
 
-    # elif "gpa" in user_prompt or "cgpa" in user_prompt:
-    #     gpa()
+    elif "c++" in user_prompt:
+        print("AI Assistant: C++ is an object-oriented extension of the C programming language.")
 
-    # elif "marks" in user_prompt or "result" in user_prompt:
-    #     marks()
+    elif "college" in user_prompt or "campus" in user_prompt:
+        print("AI Assistant: Welcome to our AI Campus Assistant. I am here to assist students and faculty.")
 
-    # elif "calculate" in user_prompt or "calculator" in user_prompt:
-    #     calculator()
+    elif "faculty" in user_prompt:
+        print("AI Assistant: Faculty information is available in the Faculty Dashboard.")
 
-    # elif "quiz" in user_prompt:
-    #     quiz()
+    elif "student" in user_prompt:
+        print("AI Assistant: Student information is available in the Student Dashboard.")
 
-    # elif "interview" in user_prompt:
-    #     interview_questions()
+    elif "placement" in user_prompt:
+        print("AI Assistant: The placement cell helps students prepare for campus interviews.")
+
+    elif "internship" in user_prompt:
+        print("AI Assistant: Internships help students gain practical industry experience.")
+
+    elif "project" in user_prompt:
+        print("AI Assistant: Choose a project that solves a real-world problem and showcases your skills.")
+
+    elif "interview" in user_prompt:
+        print("AI Assistant: Practice technical concepts, coding, aptitude, and communication skills for interviews.")
+
+    elif "resume" in user_prompt:
+        print("AI Assistant: A good resume should include education, skills, projects, certifications and achievements.")
+
+    elif "library" in user_prompt:
+        print("AI Assistant: The library is open from 9 AM to 5 PM.")
+
+    elif "exam" in user_prompt:
+        print("AI Assistant: Please contact the examination branch for the latest exam schedule.")
+
+    elif "attendance" in user_prompt:
+        print("AI Assistant: Please use the 'View Attendance' option from the Student Dashboard.")
+
+    elif "marks" in user_prompt or "result" in user_prompt:
+        print("AI Assistant: Please use the 'View Marks' option from the Student Dashboard.")
+
+    elif "cgpa" in user_prompt or "gpa" in user_prompt:
+        print("AI Assistant: Please use the 'Calculate CGPA' option from the Student Dashboard.")
+
+    elif "profile" in user_prompt:
+        print("AI Assistant: Please use the 'View Profile' option from the Student Dashboard.")
 
     elif "motivation" in user_prompt or "motivate" in user_prompt:
         print("AI Assistant: Success is the result of consistent effort. Keep learning!")
 
     elif "joke" in user_prompt:
         print("AI Assistant: Why do programmers prefer dark mode? Because light attracts bugs!")
+
+    elif "developer" in user_prompt:
+        print("AI Assistant: I was developed using Python as an academic project.")
+
+    elif "password" in user_prompt:
+        print("AI Assistant: Please contact the administrator if you forgot your password.")
+
+    elif "email" in user_prompt:
+        print("AI Assistant: Please contact the administration office for email-related issues.")
+
+    elif "phone" in user_prompt or "contact" in user_prompt:
+        print("AI Assistant: Please contact the college administration for assistance.")
 
     elif "time" in user_prompt:
         print("AI Assistant: This feature is under development.")
